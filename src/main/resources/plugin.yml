@@ -1,0 +1,7 @@
+name: "RadiusRender"
+author: "Dinty1"
+version: "${project.version}"
+main: "org.horizons_server.radiusrender"
+
+description: "Allows players to perform radius renders of limited size."
+depend: [dynmap]
