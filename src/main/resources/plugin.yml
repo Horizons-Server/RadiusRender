@@ -5,6 +5,8 @@ main: "org.horizons_server.radiusrender.RadiusRender"
 
 description: "Allows players to perform radius renders of limited size."
 depend: [dynmap]
+load: POSTWORLD
+api-version: 1.16
 
 commands:
   radiusrender:

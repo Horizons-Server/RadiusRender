@@ -1,12 +1,12 @@
 package org.horizons_server.radiusrender;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.dynmap.DynmapCommonAPI;
 
 public class RenderCommand implements CommandExecutor {
 
@@ -33,11 +33,12 @@ public class RenderCommand implements CommandExecutor {
         final int maximumRadius = plugin.getConfig().getInt("maximum-radius");
         if (requestedRadius > maximumRadius) {
             sender.sendMessage(ChatColor.RED + String.format("The maximum radius you can render is %s!", maximumRadius));
+            return true;
         }
 
-        final DynmapCommonAPI dynmapAPI = (DynmapCommonAPI) RadiusRender.getProvidingPlugin(DynmapCommonAPI.class);
         final Location location = player.getLocation();
-        dynmapAPI.triggerRenderOfBlock(args[0], location.getBlockX(), location.getBlockY(), location.getBlockZ());
+        plugin.getServer().dispatchCommand(Bukkit.getConsoleSender(), String.format("dynmap radiusrender %s %s %s %s", location.getWorld().getName(), location.getBlockX(), location.getBlockZ(), args[0]));
         sender.sendMessage(ChatColor.DARK_AQUA + "Your render is starting!");
+        return true;
     }
 }
