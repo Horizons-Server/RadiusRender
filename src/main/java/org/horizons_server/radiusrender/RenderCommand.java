@@ -1,6 +1,5 @@
 package org.horizons_server.radiusrender;
 
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -37,8 +36,7 @@ public class RenderCommand implements CommandExecutor {
         }
 
         final Location location = player.getLocation();
-        plugin.getServer().dispatchCommand(Bukkit.getConsoleSender(), String.format("dynmap radiusrender %s %s %s %s", location.getWorld().getName(), location.getBlockX(), location.getBlockZ(), args[0]));
-        sender.sendMessage(ChatColor.DARK_AQUA + "Your render is starting!");
+        plugin.getServer().dispatchCommand(new FakeCommandSender(player), String.format("dynmap radiusrender %s %s %s %s", location.getWorld().getName(), location.getBlockX(), location.getBlockZ(), args[0]));
         return true;
     }
 }
