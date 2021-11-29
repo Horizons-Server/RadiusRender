@@ -27,13 +27,36 @@ public class FakeCommandSender implements CommandSender {
     }
 
     @Override
-    public void sendMessage(String[] strings) {
-        if (player.isOnline()) {
-            player.sendMessage(strings);
-        }
+    public boolean isPermissionSet(String s) {
+        return true;
+    }
+
+    @Override
+    public boolean isPermissionSet(Permission permission) {
+        return true;
+    }
+
+    @Override
+    public boolean hasPermission(String s) {
+        return true;
+    }
+
+    @Override
+    public boolean hasPermission(Permission permission) {
+        return true;
+    }
+
+    @Override
+    public boolean isOp() {
+        return true;
     }
 
     // Need to be declared but no need to use:
+
+    @Override
+    public void sendMessage(String[] strings) {
+
+    }
 
     @Override
     public void sendMessage(UUID uuid, String s) {
@@ -58,26 +81,6 @@ public class FakeCommandSender implements CommandSender {
     @Override
     public Spigot spigot() {
         return null;
-    }
-
-    @Override
-    public boolean isPermissionSet(String s) {
-        return true;
-    }
-
-    @Override
-    public boolean isPermissionSet(Permission permission) {
-        return true;
-    }
-
-    @Override
-    public boolean hasPermission(String s) {
-        return true;
-    }
-
-    @Override
-    public boolean hasPermission(Permission permission) {
-        return true;
     }
 
     @Override
@@ -113,11 +116,6 @@ public class FakeCommandSender implements CommandSender {
     @Override
     public Set<PermissionAttachmentInfo> getEffectivePermissions() {
         return null;
-    }
-
-    @Override
-    public boolean isOp() {
-        return true;
     }
 
     @Override
