@@ -1,5 +1,6 @@
 package org.horizons_server.radiusrender;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Server;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -14,15 +15,18 @@ import java.util.UUID;
 public class FakeCommandSender implements CommandSender {
 
     private final Player player;
+    private final String name;
 
     public FakeCommandSender(Player player) {
         this.player = player;
+        this.name = player.getName();
     }
 
     @Override
     public void sendMessage(String s) {
+        RadiusRender.getPlugin().getLogger().info(String.format("Radiusrender by %s: %s", this.name, s));
         if (player.isOnline()) {
-            player.sendMessage(s);
+            player.sendMessage(ChatColor.AQUA + s);
         }
     }
 
