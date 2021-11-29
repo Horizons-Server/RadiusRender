@@ -24,7 +24,7 @@ public class RenderCommand implements CommandExecutor {
         final int currentTPS = plugin.getTPSCalculator().getTPS();
         final int minimumTPS = plugin.getConfig().getInt("minimum-ticks-per-second");
         if (currentTPS < minimumTPS) {
-            sender.sendMessage(ChatColor.RED + String.format("The TPS is too low to perform a render (currently at %s). The minimum allowed TPS is %s.", currentTPS, minimumTPS));
+            sender.sendMessage(ChatColor.RED + String.format("The TPS is too low to perform a render (currently at %s). The minimum allowed TPS is %s. This may work again in a few seconds.", currentTPS, minimumTPS));
             return true;
         }
 
