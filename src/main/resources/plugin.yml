@@ -1,7 +1,15 @@
 name: "RadiusRender"
 author: "Dinty1"
 version: "${project.version}"
-main: "org.horizons_server.radiusrender"
+main: "org.horizons_server.radiusrender.RadiusRender"
 
 description: "Allows players to perform radius renders of limited size."
 depend: [dynmap]
+
+commands:
+  radiusrender:
+    aliases: [localrender, rr, lr]
+    description: "Renders the area around you on dynmap"
+    usage: /<command> <radius>
+    permission: radiusrender.render
+    permission-message: "§cYou do not have permission to use this command."

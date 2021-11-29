@@ -1,0 +1,12 @@
+# RadiusRender config
+#
+# Not officially supported outside of Horizons
+#
+# You know the drill
+config-version: ${project.version}
+#
+# Max radius that people are allowed to render
+maximum-radius: 500
+#
+# Minimum TPS value for the render to proceed. If the server's TPS is below this then the command will not be processed.
+minimum-ticks-per-second: 19
