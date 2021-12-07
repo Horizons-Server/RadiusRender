@@ -1,5 +1,6 @@
 package org.horizons_server.radiusrender;
 
+import org.apache.commons.lang.StringUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -20,6 +21,7 @@ public class RenderCommand implements CommandExecutor {
         Player player = (Player) sender;
 
         if (args.length < 1) return false;
+        if (!StringUtils.isNumeric(args[0])) return false;
 
         final int currentTPS = plugin.getTPSCalculator().getTPS();
         final int minimumTPS = plugin.getConfig().getInt("minimum-ticks-per-second");
